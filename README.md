@@ -1,5 +1,5 @@
 # TP4 Spring Cloud : Microservices « Calculatrice »
-*Guerfel Nour 
+* Guerfel Nour
 **Matière :** Architecture MicroServices, MPSRCC1
 **Technologies :** Spring Boot 4.0.9, Eureka, OpenFeign, Spring Cloud Gateway, Swagger UI, Lombok
 
@@ -81,8 +81,6 @@ On obtient le statut **503 Service Unavailable**. Eureka ne connaît aucun servi
 | 6 | GET /operations | aucun | 200 | aucune |
 | 7 | GET /operations/2 | aucun | 200 | aucune |
 
-Captures : `screenshots/D4-test1.png` à `screenshots/D4-test7.png`
-
 ---
 
 ## Partie E : La passerelle gateway-service
@@ -94,7 +92,6 @@ La passerelle ajoute des en-têtes `X-Forwarded-Host` et `X-Forwarded-Port` à l
 ### E.2 : Routes statiques en YAML
 
 Tests via le Swagger UI de la passerelle (http://localhost:8888/swagger-ui.html).
-Captures : `screenshots/E2-test1.png` à `screenshots/E2-test6.png`
 
 (Tableau des 6 requêtes à compléter.)
 
@@ -119,13 +116,3 @@ Captures : `screenshots/E2-test1.png` à `screenshots/E2-test6.png`
 ## Questions de synthèse
 
 (À compléter : questions 1 à 11.)
-
----
-
-## Captures d'écran
-
-- Tableau de bord Eureka (3 services, CALCUL-SERVICE avec 2 instances) : `screenshots/eureka.png`
-- Routes de la passerelle (configuration dynamique) : `screenshots/gateway-routes.png`
-- Swagger UI de la passerelle, configuration statique : `screenshots/swagger-static.png`
-- Swagger UI de la passerelle, configuration dynamique : `screenshots/swagger-dynamic.png`
-- Les cinq consoles : `screenshots/consoles.png`
