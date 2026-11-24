@@ -50,8 +50,7 @@ Chaque instance reçoit 3 requêtes (tour de rôle : 8081, 8083, 8081, 8083, 808
 
 Au premier lancement, le tableau de bord (http://localhost:8761) indique « No instances available » : aucun service n'est encore inscrit. Le message rouge sur le mode auto-préservation est normal (`enable-self-preservation=false`).
 
-![Eureka vide](screenshots/1ms.png)
-
+![Eureka vide](images/1ms.png)
 **Question B.1.** Pourquoi Eureka peut-il tourner avec calcul-service et historique-service ?
 
 Chaque programme est un processus Java indépendant avec son propre port : 8761, 8081, 8082. Il n'y a donc aucun conflit de port.
@@ -62,15 +61,15 @@ Chaque programme est un processus Java indépendant avec son propre port : 8761,
 
 Swagger UI de calcul-service (http://localhost:8081/swagger-ui.html) : la page liste les opérations de `calcul-controller`.
 
-![Swagger calcul-service](screenshots/2ms.png)
+![Swagger calcul-service](images/2ms.png)
 
 Test de `GET /calcul/somme?a=2&b=3` : code 200, réponse `5`.
 
-![Test somme](screenshots/3ms.png)
+![Test somme](images/3ms.png)
 
 Avec la seconde instance sur le port 8083, CALCUL-SERVICE affiche **UP (2)** : `calcul-service:8081` et `calcul-service:8083`.
 
-![Eureka avec deux instances](screenshots/4ms.png)
+![Eureka avec deux instances](images/4ms.png)
 
 **Question C.1.** Les deux instances ont le même nom mais des identifiants différents. À quoi sert chacun ?
 
@@ -90,7 +89,7 @@ Arrêtée proprement (bouton Stop), l'instance prévient Eureka et disparaît to
 
 historique-service appelle `CALCUL-SERVICE` par son nom grâce à l'interface `CalculClient` (`@FeignClient(name = "CALCUL-SERVICE")`). Le tableau de bord montre maintenant deux services : CALCUL-SERVICE UP (2) et HISTORIQUE-SERVICE UP (1).
 
-![Eureka avec historique-service](screenshots/5ms.png)
+![Eureka avec historique-service](images/5ms.png)
 
 **Question D.1.** Six fois la requête 1 : quelle instance répond ? Quelle règle ? Quel nom ?
 
@@ -120,11 +119,11 @@ Les traces des requêtes 1 à 4 alternent entre les consoles `[calcul-service:80
 
 Avec la passerelle, le tableau de bord affiche trois services : CALCUL-SERVICE (2 instances), HISTORIQUE-SERVICE et GATEWAY-SERVICE.
 
-![Eureka avec les trois services](screenshots/6ms.png)
+![Eureka avec les trois services](images/6ms.png)
 
 Swagger UI de la passerelle (http://localhost:8888/swagger-ui.html) : la liste **Select a definition** propose `calcul-service` et `historique-service`.
 
-![Swagger de la passerelle](screenshots/7ms.png)
+![Swagger de la passerelle](images/7ms.png)
 
 **Question E.1.** Pourquoi `Location` indique-t-il le port 8888 et non 8082 ?
 
